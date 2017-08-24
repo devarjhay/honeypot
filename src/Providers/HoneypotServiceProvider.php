@@ -3,6 +3,7 @@
 namespace DevArjhay\Honeypot\Providers;
 
 use DevArjhay\Honeypot\Honeypot;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class HoneypotServiceProvider extends ServiceProvider
@@ -14,7 +15,6 @@ class HoneypotServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require __DIR__ . '/../helpers.php';
         // Publishing Config
         $this->publishes([
             __DIR__ . '/../config' => config_path()
@@ -39,6 +39,11 @@ class HoneypotServiceProvider extends ServiceProvider
             // Add honeypot and honey time custom validation rules.
             $validator->extend('honeypot', 'honeypot@validateHoneypot', $translator->get('honeypot::validation.honeypot'));
             $validator->extend('honeytime', 'honeypot@validateHoneytime', $translator->get('honeypot::validation.honeytime'));
+        });
+
+        Blade::directive('honeypot', function ($expression) {
+            list($name, $time) = explode(', ', str_replace(['(',')'], '', $expression));
+            return honeypot($name, $time);
         });
     }
 

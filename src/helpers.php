@@ -5,13 +5,14 @@
  * Time: 12:10 PM
  */
 
-
 use DevArjhay\Honeypot\Facades\Honeypot;
 
 if (!function_exists('honeypot'))
 {
     function honeypot($name, $time)
     {
+        trim($name, "'");
+        trim($time, "'");
         return Honeypot::make($name, $time);
     }
 }
