@@ -12,8 +12,8 @@ return [
      */
     'enabled'       => true,
     /**
-     * Disable the auto-complete attribute in Honeypot html input.
+     * Turn off the auto-complete attribute in Honeypot html input.
      *
      */
-    'auto_complete' => false
+    'auto_complete' => 'off'
 ];

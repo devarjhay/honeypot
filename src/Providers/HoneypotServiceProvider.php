@@ -14,6 +14,7 @@ class HoneypotServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require __DIR__ . '/../helpers.php';
         // Publishing Config
         $this->publishes([
             __DIR__ . '/../config' => config_path()

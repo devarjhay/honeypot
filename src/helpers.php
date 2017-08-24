@@ -5,9 +5,10 @@
  * Time: 12:10 PM
  */
 
-use DevArjhay\Honeypot\Honeypot;
 
-if (function_exists('honeypot'))
+use DevArjhay\Honeypot\Facades\Honeypot;
+
+if (!function_exists('honeypot'))
 {
     function honeypot($name, $time)
     {
