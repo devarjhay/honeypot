@@ -7,8 +7,13 @@
 
 return [
     /**
-    /* Enable or Disable the honeypot custom validation rule.
+     * Enable or Disable the honeypot custom validation rule.
      *
      */
-    'enabled'       => true
+    'enabled'       => true,
+    /**
+     * Disable the auto-complete attribute in Honeypot html input.
+     *
+     */
+    'auto_complete' => false
 ];

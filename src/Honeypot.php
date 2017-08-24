@@ -17,11 +17,17 @@ class Honeypot
     protected $enabled;
 
     /**
+     * @var mixed
+     */
+    protected $auto_complete;
+
+    /**
      * Honeypot constructor.
      */
     public function __construct()
     {
         $this->enabled = config('honeypot::honeypot.enabled');
+        $this->auto_complete = config('honeypot::honeypot.auto_complete');
     }
 
     /**
@@ -35,8 +41,8 @@ class Honeypot
     {
         $encrypted = $this->getEncryptedTime();
         $html = '<div id="' . $name . '_wrap" style="display: none;">' . "\r\n" .
-                    '<input type="text" name="' . $name . '" id="' . $name . '" value="">' . "\r\n" .
-                    '<input type="text" name="' . $time . '" id="" value="' . $encrypted .'">' . "\r\n" .
+                    '<input type="text" name="' . $name . '" id="' . $name . '" value="" autocomplete="' . $this->auto_complete . '">' . "\r\n" .
+                    '<input type="text" name="' . $time . '" id="" value="' . $encrypted .'" autocomplete="' . $this->auto_complete . '">' . "\r\n" .
                 '</div>';
         return $html;
     }
