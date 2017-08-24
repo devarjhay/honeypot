@@ -43,7 +43,7 @@ class HoneypotServiceProvider extends ServiceProvider
 
         Blade::directive('honeypot', function ($expression) {
             list($name, $time) = explode(', ', str_replace(['(',')'], '', $expression));
-            return honeypot($name, $time);
+            return \DevArjhay\Honeypot\Facades\Honeypot::make(trim($name, "'"), trim($time, "'"));
         });
     }
 
