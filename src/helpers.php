@@ -11,8 +11,6 @@ if (!function_exists('honeypot'))
 {
     function honeypot($name, $time)
     {
-        trim($name, "'");
-        trim($time, "'");
         return Honeypot::make($name, $time);
     }
 }
