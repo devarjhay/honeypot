@@ -57,7 +57,7 @@ class Honeypot
      */
     public function validateHoneypot($attribute, $value, $parameters)
     {
-        if ($this->enabled) {
+        if (!$this->enabled) {
             return true;
         }
         return $value === '';
@@ -73,7 +73,7 @@ class Honeypot
      */
     public function validateHoneytime($attribute, $value, $parameters)
     {
-        if ($this->enabled) {
+        if (!$this->enabled) {
             return true;
         }
 
