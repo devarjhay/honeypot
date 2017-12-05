@@ -60,7 +60,7 @@ class Honeypot
         if (!$this->enabled) {
             return true;
         }
-        return $value === '';
+        return $value == '';
     }
 
     /**
