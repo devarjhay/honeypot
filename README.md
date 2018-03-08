@@ -1,5 +1,5 @@
 # Honeypot: Spam Prevention
-A simple spam prevention package for Laravel 5.4.
+A simple spam prevention package for Laravel 5.4 and 5.5.
 
 # Installation:
 ### Composer
@@ -9,7 +9,7 @@ composer require devarjhay/honeypot
 ```
 
 # Configuration
-### Register the Honeypot Service Provider
+### Register the Honeypot Service Provider (Laravel 5.4 only)
 Add the package to your application service providers in `config/app.php` file.
 ```php
 'providers' => [
